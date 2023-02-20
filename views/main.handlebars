@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <title>HTML Mailer</title>
+</head>
+<body>
+    <header>
+        <h1><span>H</span><span>T</span><span>M</span><span>L</span> Mailer</h1>
+    </header>
+    <main>
+        <form action="/send" method="post" autocomplete="off">
+            <div class="inputs">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="eg. Bobby Jo Dingus" autofocus required>
+            </div>
+            <div class="inputs">
+                <label for="recipient">Email Address:</label>
+                <input type="text" id="recipient" name="recipient" placeholder="ExampleMail@gmail.com" required>
+            </div>
+            <div class="inputs">
+                <label for="select-email">Select which email to send:</label>
+                <select name="select_email" id="select-email">
+                    <optgroup label="What email to send">
+                        <option value="company-info">Company Info</option>
+                        <option value="get-a-quote-online">Get a Quote Online</option>
+                        <option value="how-to-research">How to Research Your Movers</option>
+                        <option value="if-your-movers-dont-show-up">If Your Movers Don't Show Up</option>
+                    </optgroup>
+                </select>
+                <button type="submit" class="{{color}}">Send</button>
+            </div>
+        </form>
+        <div class="sent-status">
+            <p>Sent status: </p>
+            <span>{{status}}</span>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>
