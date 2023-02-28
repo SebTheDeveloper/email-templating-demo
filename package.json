@@ -1,6 +1,6 @@
 {
-  "name": "web-xpert",
-  "version": "1.0.0",
+  "name": "web-xpert-html-mailer",
+  "version": "1.1",
   "description": "WebXpert.io",
   "main": "app.js",
   "scripts": {
@@ -27,5 +27,8 @@
     "nodemailer-express-handlebars": "^6.0.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

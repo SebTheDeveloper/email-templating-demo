@@ -1,4 +1,4 @@
-function getHTML(name, email) {
+function getHTML(name, email, selectedEmail) {
   return `
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -124,7 +124,7 @@ function getHTML(name, email) {
       <div style="max-width: 600px;background-color: #ffffff;box-shadow: 0 0 10px rgba(0, 0, 0, .2);">
   
            <div style="font-size: 0px;color: #fafdfe;line-height: 1px;mso-line-height-rule:exactly;display: none;max-width: 0px;max-height: 0px;opacity: 0;overflow: hidden;mso-hide:all;">
-              If you'd prefer to get a quote online rather than on the phone, you can enter your inventory list at - https://doughertybrothersmoving.com/get-a-quote-online/
+              Hi ${name}, if you'd prefer to get a quote online rather than on the phone, you can enter your inventory list at - https://doughertybrothersmoving.com/get-a-quote-online/
            </div>
   
         <!--[if (gte mso 9)|(IE)]>
@@ -151,8 +151,8 @@ function getHTML(name, email) {
                     <table class="content" style="border-spacing:0;color:#ffffff;width:100%;font-size:14px;text-align:center;" role="presentation">
                       <tr>
                         <td style="background-color: #277fd2;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;width: 200px;">
-                          <a href="mailto:${process.env.USER}@doughertybrothersmoving.com"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-email-1.png" width="19" alt="" style="border-width:0;width:100%;max-width:19px;height:auto;vertical-align:middle;"></a>
-                          <a href="mailto:${process.env.USER}@doughertybrothersmoving.com" target="_blank" style="font-size: 10px;color: #ffffff; text-decoration: none; display: inline-block;">${process.env.USER}@doughertybrothersmoving.com</a>
+                          <a href="mailto:${process.env.CURR_USER}@doughertybrothersmoving.com"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-email-1.png" width="19" alt="" style="border-width:0;width:100%;max-width:19px;height:auto;vertical-align:middle;"></a>
+                          <a href="mailto:${process.env.CURR_USER}@doughertybrothersmoving.com" target="_blank" style="font-size: 10px;color: #ffffff; text-decoration: none; display: inline-block;">${process.env.CURR_USER}@doughertybrothersmoving.com</a>
                         </td>
                       </tr>
   
@@ -330,7 +330,7 @@ function getHTML(name, email) {
   
                               <td class="pr-large" valign="middle" align="left" style="padding-top:5px;padding-right:25px;padding-bottom:18px;padding-left:25px; vertical-align:middle; font-size: 28px; line-height: 28px;">
   
-                                <p align="left" style="font-size: 28px; line-height: 28px; font-weight:bold;">Hello ${name},</p>
+                                <p align="left" style="font-size: 28px; line-height: 28px; font-weight:bold;">Hi ${name},</p>
   
                                 <p align="left" style="font-size:18px; line-height: 28px;font-weight:400">Want a quote but don't want to speak to anyone? No problem! Click on the link below to get a quote online.</p>
                               </td>
@@ -557,7 +557,7 @@ function getHTML(name, email) {
                               <![endif]-->
   
                               <td style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;">
-                                <p style="font-weight: bold;font-size: 18px;line-height: 24px;">Get a quote online by submitting your inventory list. You only pay for the space you use!</p>
+                                <p style="font-weight: bold;font-size: 18px;line-height: 24px;">Get a quote online by submitting your inventory list. You only pay for the space you use.</p>
                               </td>
                             </tr>
                           </table>
@@ -638,7 +638,7 @@ function getHTML(name, email) {
                             <tr>
                               <td style="padding-top:5px;padding-right:0;padding-bottom:5px;padding-left:0;width:100%;text-align:center;">
                                 <a href="https://www.facebook.com/DoughertyBrothersMoving/?view_public_for=101369074847164"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-facebook.png" alt="facebook" width="28" style="border-width:0;padding-right:1px;max-width:28px;"></a>
-                                <a href="mailto:${process.env.USER}@doughertybrothersmoving.com"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-email.png" alt="twitter" width="28" style="border-width:0;padding-right:1px;max-width:28px;"></a>
+                                <a href="mailto:${process.env.CURR_USER}@doughertybrothersmoving.com"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-email.png" alt="twitter" width="28" style="border-width:0;padding-right:1px;max-width:28px;"></a>
                                 <a href="https://www.youtube.com/channel/UCuglZ8-DHovM5S3Uyiyi2_A"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-youtube.png" alt="youtube" width="28" style="border-width:0;padding-right:1px;max-width:28px;"></a>
                                 <a href="https://www.instagram.com/doughertybrothersmoving/"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-instagram.png" alt="linkedin" width="28" style="border-width:0;padding-right:1px;max-width:28px;"></a>
                                 <a href="tel:${process.env.USER_PHONE}"><img src="https://doughertybrothersmoving.com/wp-content/uploads/2022/08/white-phone.png" alt="instagram" width="28" style="border-width:0;padding-right:1px;max-width:28px;"></a>
@@ -733,7 +733,7 @@ function getHTML(name, email) {
   
       </div>
 
-      <img src="https://koreanbeefjerky.com/track?name=${name}&email=${email}" alt="" width="0" height="0" style="width:2px;max-height:0;overflow:hidden;">
+      <img src="https://goodnoodle.xyz/viewed-email?name=${name}&email=${email}&sentEmail=${selectedEmail}" alt="" width="0" height="0" style="width:2px;max-height:0;overflow:hidden;">
 
     </center>
   </body>

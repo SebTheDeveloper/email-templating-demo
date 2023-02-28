@@ -6,6 +6,7 @@ function getHTML(name, email, selectedEmail) {
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Your Upcoming Move - Dougherty Brothers Moving</title>
       </head>
       <body>
           
@@ -35,7 +36,7 @@ function getHTML(name, email, selectedEmail) {
                                                                                           <tr>
                                                                                               
                                                                                               <td style="width:100%;font-size:1px;color:#1f212d;line-height:1px;max-height:1px;opacity:0;overflow:hidden">
-                                                                                                  Hi ${name}, if your mover doesn't show up, give me a call at ${process.env.USER_PHONE} and we can facilitate a last-minute pickup for you. Typically, we can get a truck and a crew out to you within a few hours. View this email to learn more..            </td>
+                                                                                                  Hi ${name}, this is ${process.env.CURR_USER} with Dougherty Brothers Moving. I wanted to follow-up with you about your move. Are you still in need of full-service movers?         </td>
                                                                                           </tr>
                                                                                           <tr>
                                                                                               <td align="center">
@@ -149,16 +150,12 @@ function getHTML(name, email, selectedEmail) {
                                                                   <table border="0" cellpadding="20" cellspacing="0" align="center" bgcolor="#ffffff">
                                           <tbody>
                                               <tr>
-                                                  <td width="600" valign="top" style="text-align:left;font-size:20px;font-family:Calibri,sans-serif,'Open Sans';color:#7ac043;font-weight:bold">
-                                                      Hi ${name},
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td style="color:#333;font-weight:normal;text-align:left;font-family:Arial,Helvetica,sans-serif;line-height:20px;vertical-align:top;" bgcolor="#ffffff">
-                                                      <div style="font-size:16px;">
-                                                          I'm sure you've already selected a mover, but I just wanted to reach out and offer you a lifeline, just in case anything happens. <br><br><br><span style="font-weight: bold;">If your movers don't show up or they try to change the agreed upon price, give me a call at <span style="color: #3498DB;">${process.env.USER_PHONE}</span> and we will see if we can facilitate an emergency pickup. In some cases, it may even be possible to get a truck and a crew out to you within a few hours.</span>
-                                                          <br><br><br>
-                                                          Although I hope not to hear from you, because that means everything went well, if you need me just give me a call. Have a great rest of your day. <br><br><br>
+                                                  <td style="font-size:16px;color:#333;font-weight:normal;text-align:left;font-family:Arial,Helvetica,sans-serif;line-height:20px;vertical-align:top" bgcolor="#ffffff">
+                                                      <div>
+                                                          <strong>Hi ${name},</strong><br><br>
+                                                          This is ${process.env.CURR_USER} with Dougherty Brothers Moving. <br><br>I wanted to follow-up with you about your move. Have you already hired a moving company?<br><br><br>
+                                                           <i style="font-size:13px;">We are a veteran-founded company that facilitates full-service moves (loading/unloading, pad wrapping, furniture disassembly, transport, etc.) and our estimates include taxes, fuel, mileage and labor.</i>
+                                                           <br><br>
                                                       </div>
                                                   </td>
                                               </tr>
@@ -186,7 +183,7 @@ function getHTML(name, email, selectedEmail) {
                                                                                   </tr>
                                                                                   <tr>
                                                                                       <td align="left" style="color:#bebebe;font-size:16px;font-family:Calibri,sans-serif,'Open Sans';line-height:20px">
-                                                                                          Also, feel free to <a href="https://doughertybrothersmoving.com/services" target="_blank" style="color: #bebebe;">learn more</a> about us on our website. 
+                                                                                          Also, you can <a href="https://doughertybrothersmoving.com/services" target="_blank" style="color: #bebebe;">learn more</a> about us on our website. 
                                                                                       </td>
                                                                                   </tr>
                                                                                   <tr>
@@ -283,9 +280,9 @@ function getHTML(name, email, selectedEmail) {
                                                       </td>
                                                   </tr>
                                                   <tr>
-                                                      <td style="color:#848484;font-size:14px;font-family:Calibri,sans-serif,'Open Sans';line-height:18px; text-align:center;">
+                                                      <td style="color:#848484;font-size:14px;font-family:Calibri,sans-serif,'Open Sans';line-height:18px;text-align:center;">
                                                                                                                   
-                                                                  Don't want to receive any more emails? <a href="https://doughertybrothersmoving.com/email-opt-out" style="color:#999;text-decoration:underline" target="_blank">Click here</a> to unsubscribe.
+                                                                  Don't want to receive any more emails? <a href="https://doughertybrothersmoving.com/email-opt-out/" style="color:#999;text-decoration:underline;" target="_blank">Click here</a> to opt out.
                                                                                                           </td>
                                                   </tr>
                                                   <tr>
@@ -302,9 +299,9 @@ function getHTML(name, email, selectedEmail) {
               </tr>
           </tbody></table> 
           <div style="display:none;white-space:nowrap;font:15px courier;color:#ffffff">
-          
-      <img src="https://goodnoodle.xyz/viewed-email?name=${name}&email=${email}&sentemail=${selectedEmail}" alt="" width="0" height="0" style="width:2px;max-height:0;overflow:hidden;">
 
+        <img src="https://goodnoodle.xyz/viewed-email?name=${name}&email=${email}&sentemail=${selectedEmail}" alt="" width="0" height="0" style="width:2px;max-height:0;overflow:hidden;">
+    
       </body>
   
   </html>

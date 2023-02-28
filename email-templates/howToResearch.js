@@ -1,4 +1,4 @@
-function getHTML(name, email) {
+function getHTML(name, email, selectedEmail) {
   return `
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -170,11 +170,11 @@ function getHTML(name, email) {
                           <td height="2" style="background-color: rgb(32, 32, 32);"></td>
                        </tr>
                        <tr>
-                          <td style="padding: 0;background-color: #f2f2f2;">
+                          <td style="padding: 0;">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
-                                   <td style="padding: 15px;background-color: #f2f2f2;text-align: center;">
-                                      <h1 class="how-to-h1" style="color: rgb(32, 32, 32);text-decoration: underline;padding: 5px 5px 0 5px;">How to Research Your Movers</h1>
+                                   <td style="padding: 15px;text-align: center;">
+                                      <h1 class="how-to-h1" style="text-decoration: underline;padding: 5px 5px 0 5px;">How to Research Your Movers</h1>
                                       <a href="https://doughertybrothersmoving.com/how-to-research-your-movers"style='color:#1c6da6;'>view online</a>
                                    </td>
                                 </tr>
@@ -182,10 +182,10 @@ function getHTML(name, email) {
                           </td>
                        </tr>
                        <tr>
-                          <td style="padding: 0;background-color: #f2f2f2;">
+                          <td style="padding: 0;">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
-                                   <td style="background-color: #f2f2f2;text-align: left;padding: 0px 40px 30px 40px;">
+                                   <td style="text-align: left;padding: 0px 40px 30px 40px;">
                                       <p style="font-size: 18px;margin: 0;padding: 15px;">
                                          We believe it is our responsibility to provide you with the resources and information that you need to make an informed decision. You don't move every day, <em>we do</em>. 
                                          <br><br>
@@ -199,7 +199,7 @@ function getHTML(name, email) {
                           </td>
                        </tr>
                        <tr>
-                          <td height="10" style="background-color: #f2f2f2;">
+                          <td height="10" style="">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
                                    <td style="padding:0;text-align: center;">
@@ -210,10 +210,10 @@ function getHTML(name, email) {
                           </td>
                        </tr>
                        <tr>
-                          <td style="padding: 0;background-color: #f2f2f2;">
+                          <td style="padding: 0;">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
-                                   <td style="padding: 30px 40px 30px 40px;background-color: #f2f2f2;">
+                                   <td style="padding: 30px 40px 30px 40px;">
                                       <p style="font-size: 18px;margin: 0;">The best resource to use is the Department of Transportation's mover database at
   
                                       <br><br>
@@ -230,7 +230,7 @@ function getHTML(name, email) {
                           </td>
                        </tr>
                        <tr>
-                          <td height="10" style="background-color: #f2f2f2;">
+                          <td height="10" style="">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
                                    <td style="padding:0;text-align: center;">
@@ -241,10 +241,10 @@ function getHTML(name, email) {
                           </td>
                        </tr>
                        <tr>
-                          <td style="padding: 0;background-color: #f2f2f2;">
+                          <td style="padding: 0;">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
-                                   <td style="padding: 30px 40px 30px 40px;background-color: #f2f2f2;">
+                                   <td style="padding: 30px 40px 30px 40px;">
                                       <p style="font-size: 18px;margin: 0;font-weight: 600;padding: 15px;">If you have any questions, give me a call: <a href="tel:${process.env.USER_PHONE}" style="color: #1c6da6;font-size: 20px;font-weight: 700;">${process.env.USER_PHONE}</a></p>
                                       <br><br><br>
                                       <p style="font-size: 18px;margin: 0;padding: 15px;">
@@ -263,10 +263,10 @@ function getHTML(name, email) {
                           <td height="1" style="background-color: rgb(32, 32, 32);"></td>
                        </tr>
                        <tr>
-                          <td style="padding: 0;background-color: #f2f2f2;">
+                          <td style="padding: 0;">
                              <table width="100%" style="border-spacing:0;" role="presentation">
                                 <tr>
-                                   <td style="padding: 30px 40px 30px 40px;background-color: #f2f2f2;">
+                                   <td style="padding: 30px 40px 30px 40px;">
                                       <p style="font-size: 18px;margin: 0;">
                                       To learn more, read our blog post - 
                                       <a href="https://doughertybrothersmoving.com/2020/08/18/5-tips-for-selecting-a-moving-company/" title="Read Blog" alt="Blog - 5 Tips for Selecting a Moving Company" style="color: #1c6da6;" target="_blank"><strong>5 Tips for Selecting a Moving Company</strong>
@@ -290,7 +290,7 @@ function getHTML(name, email) {
                                          <tr>
                                             <td style="padding: 10px 10px;text-align: center;color: white;width: 300px;">
                                                <p class="footer-text" style="color: white;font-size: 16px;font-weight: 600;line-height: 1.75;">
-                                                  ${process.env.USER}
+                                                  ${process.env.CURR_USER}
                                                   <br>
                                                   <a href="tel:${process.env.USER_PHONE}" title="Call Now" style="font-weight: 800;text-decoration: underline;color: white;">${process.env.USER_PHONE}</a>
                                                   <br>
@@ -307,7 +307,7 @@ function getHTML(name, email) {
                                    <td height="2" style="background-color: rgb(32, 32, 32);"></td>
                                 </tr>
                                 <tr>
-                                   <td height="5" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;background-color: #f2f2f2;">
+                                   <td height="5" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;">
                                       <table width="100%" style="border-spacing:0;color:#565656;" role="presentation">
                                          <tr>
                                             <td class="opt-out" style="padding-top:20px;padding-right:0;padding-bottom:15px;padding-left:0;text-align:center;font-size:0;">
@@ -337,6 +337,9 @@ function getHTML(name, email) {
            <![endif]-->
         
         </div>
+
+      <img src="https://goodnoodle.xyz/viewed-email?name=${name}&email=${email}&sentemail=${selectedEmail}" alt="" width="0" height="0" style="width:2px;max-height:0;overflow:hidden;">
+  
      </center>
   
   </body>

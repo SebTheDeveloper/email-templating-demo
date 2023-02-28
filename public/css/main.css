@@ -49,7 +49,7 @@ table {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 
 :root {
-  --radius: 10px;
+  --radius: 4px;
   --shadow: 0 2px 7px #00000090;
   --blue: #1494e4;
   --blue-grey: #005485;
@@ -94,18 +94,15 @@ form {
   padding: 2rem;
   gap: 2.5rem;
   box-shadow: 3px 3px 15px #00000085;
+  color: rgb(230, 230, 230);
   background: var(--gradient);
-  color: white;
   border-radius: var(--radius);
-  opacity: .95;
   transition: all .5s ease-in-out;
 }
 form:hover {
-  border-radius: calc(var(--radius) + 1rem);
-  opacity: 1;
-  margin: 2.75rem 0;
-  transform: scale(1.02);
-  box-shadow: 6px 4px 15px #00000075;
+  border-radius: calc(var(--radius) + .75rem);
+  color: white;
+  box-shadow: 6px 4px 15px #00000080;
 }
 .inputs {
   display: grid;
@@ -118,19 +115,53 @@ label {
   font-size: 1.75rem;
 }
 input, select {
+  font-family: "Roboto";
   padding: 1em 2em;
   width: 100%;
   border-radius: var(--radius);
-  border: 0;
+  border: 2px solid transparent;
   box-shadow: var(--shadow);
   background-color: var(--offWhite);
+  border: 2px solid transparent;
+}
+input:hover, select:hover, textarea:hover {
+  border: 2px solid rgba(0, 0, 0, 0.7);
 }
 select {
   cursor: pointer;
   text-align: center;
+  font-weight: bold;
+}
+.options {
+  padding: .5rem;
+  text-align: center;
+}
+.options * {
+  display: inline;
+}
+.options *:not(#plain-text) {
+  color: white;
+  padding: 0 .4rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.options *:not(#plain-text):hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+.options *:not(#plain-text):active {
+  color: purple;
+}
+textarea {
+  position: relative;
+  padding: .6rem;
+  border-radius: var(--radius);
+  text-align: center;
+  border: 2px solid transparent;
+  font-weight: bold;
 }
 button {
-  margin-top: 1rem;
   cursor: pointer;
   padding: .9em 1.5em;
   border-radius: var(--radius);
@@ -147,9 +178,10 @@ button {
 .green {
   background-color: var(--green);
 }
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 1px 0 7px var(--offWhite);
+button:hover, button:focus {
+  transform: scale(1.12);
+  box-shadow: 0 0 7px var(--offWhite), inset 0 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: calc(var(--radius) + 3px);
 }
 .sent-status {
   text-align: center;

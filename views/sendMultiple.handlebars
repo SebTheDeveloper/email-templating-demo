@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/main.js" defer></script>
+    <script src="/js/sendMultiple.js" defer></script>
     <title>HTML Mailer</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
         <h1><span>H</span><span>T</span><span>M</span><span>L</span> Mailer</h1>
     </header>
     <main>
-        <form action="/email/send" method="post" autocomplete="off">
+        <form action="/email/send-multiple" method="post" autocomplete="off">
             <div class="inputs">
                 <label for="select-email">Select an email to send:</label>
                 <select name="select_emails" id="select-email" autofocus>
@@ -27,24 +27,15 @@
                 </select>
             </div>
             <div class="inputs">
-                <label for="name">Customer Name:</label>
-                <input type="text" id="name" name="name" placeholder="eg. Bobby Jo Dingus" required>
-            </div>
-            <div class="inputs">
-                <label for="recipient">Email Address:</label>
-                <input type="email" id="recipient" name="recipient" placeholder="ExampleMail@gmail.com" required>
+                <label for="recipients">Recipients:</label>
+                <textarea rows="4" cols="35" id="recipients" name="recipients" placeholder="eg. ['john', 'example@gmail.com'],['sarah', 'anotherexample@yahoo.com'],['kyle', 'placeholder@outlook.com']" required></textarea>
             </div>
             <div class="options">
-                <a href="" id="preview">Preview Email</a>
-                <p id="plain-text">or</p>
-                <a href="/email/send-multiple">Send Multiple</a>
+                <p id="plain-text">How to Use - </p>
+                <a href="" onclick="alert('nothing to see here yet')">Tutorial</a>
             </div>
-            <button type="submit" class="{{color}}">Send</button>
+            <button type="submit" class="{{color}}">Send Multiple</button>
         </form>
-        <div class="sent-status">
-            <p>Sent status: </p>
-            <span>{{status}}</span>
-        </div>
     </main>
     <footer>
     </footer>

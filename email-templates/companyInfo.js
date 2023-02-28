@@ -1,4 +1,4 @@
-function getHTML(name, email) {
+function getHTML(name, email, selectedEmail) {
   return `
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -136,7 +136,7 @@ function getHTML(name, email) {
         <div style="max-width: 600px;background-color: #fafdfe;box-shadow: 0 0 10px rgba(0, 0, 0, .2);">
   
            <div style="font-size: 0px;color: #fafdfe;line-height: 1px;mso-line-height-rule:exactly;display: none;max-width: 0px;max-height: 0px;opacity: 0;overflow: hidden;mso-hide:all;">
-              Hello ${name}, this is ${process.env.USER} with Dougherty Brothers Moving. We are a Veteran-founded, family owned and operated company that facilitate full-service moves. With decades of combined experience, our team is best suited to fit your out-of-state moving needs. Give me a call: ${process.env.USER_PHONE} 
+              Hi ${name}, this is ${process.env.CURR_USER} with Dougherty Brothers Moving. We are a Veteran-founded, family owned and operated company that facilitate full-service moves. With decades of combined experience, our team is best suited to fit your out-of-state moving needs. Give me a call: ${process.env.USER_PHONE} 
            </div>
         
            <!--[if (gte mso 9)|(IE)]>
@@ -236,7 +236,7 @@ function getHTML(name, email) {
                                 <tr>
                                    <td style="padding: 10px 10px;text-align: center;color: white;width: 300px;border: 0px;">
                                       <p class="footer-text" style="color: white;font-size: 16px;font-weight: 600;line-height: 1.75;">
-                                         ${process.env.USER}
+                                         ${process.env.CURR_USER}
                                          <br>
                                          <a href="tel:${process.env.USER_PHONE}" title="Call Now" style="font-weight: 800;text-decoration: underline;color: white;">${process.env.USER_PHONE}</a>
                                          <br>
