@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebdoubleu/repo-name.git"
+    "url": "git+https://github.com/sebdoubleu/goodnoodle.git"
   },
-  "author": "",
+  "author": "webxpert.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sebdoubleu/repo-name/issues"
+    "url": "https://github.com/sebdoubleu/goodnoodle/issues"
   },
-  "homepage": "https://github.com/sebdoubleu/repo-name#readme",
+  "homepage": "https://github.com/sebdoubleu/goodnoodle#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",

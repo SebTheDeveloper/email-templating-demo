@@ -16,7 +16,7 @@
         <form action="/email/send-multiple" method="post" autocomplete="off">
             <div class="inputs">
                 <label for="select-email">Select an email to send:</label>
-                <select name="select_emails" id="select-email" autofocus>
+                <select name="select_email" id="select-email" autofocus>
                     <optgroup label="What email to send">
                         <option value="company-info">Company Info</option>
                         <option value="get-a-quote-online">Get a Quote Online</option>
@@ -28,11 +28,11 @@
             </div>
             <div class="inputs">
                 <label for="recipients">Recipients:</label>
-                <textarea rows="4" cols="35" id="recipients" name="recipients" placeholder="eg. ['john', 'example@gmail.com'],['sarah', 'anotherexample@yahoo.com'],['kyle', 'placeholder@outlook.com']" required></textarea>
+                <textarea rows="4" cols="35" id="recipients" name="recipients" placeholder="eg. John,john@example.com\nJane,jane@example.com\nPeter,petersemail@example.com" required></textarea>
             </div>
             <div class="options">
                 <p id="plain-text">How to Use - </p>
-                <a href="" onclick="alert('nothing to see here yet')">Tutorial</a>
+                <a href="" id="tutorial">Tutorial</a>
             </div>
             <button type="submit" class="{{color}}">Send Multiple</button>
         </form>
