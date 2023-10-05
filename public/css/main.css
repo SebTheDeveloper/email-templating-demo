@@ -3,66 +3,149 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
 
 :root {
   --radius: 4px;
   --shadow: 0 2px 7px #00000090;
+  --darkGrey: rgb(22, 22, 22);
   --blue: #1494e4;
   --blue-grey: #005485;
   --orange: #da3e00;
   --green: #006900;
   --offWhite: #eee;
-  --gradient: linear-gradient(to right, var(--blue-grey), var(--blue));
+  --gradient: radial-gradient(var(--darkGrey), var(--darkGrey));
 }
 body {
-  font-size: 1.2rem;
-  background-color: var(--offWhite);
-  font-family: 'Roboto', sans-serif;
   min-height: 100vh;
+  padding: 1rem 0;
+  background-color: var(--darkGrey);
+  font-family: "Roboto", sans-serif;
+  color: var(--offWhite);
 }
 body,
 main,
@@ -75,32 +158,19 @@ form {
 h1 {
   font-size: 3.5rem;
 }
-h1 span:nth-of-type(1) {
-  color: var(--orange);
-}
-h1 span:nth-of-type(2) {
-  color: var(--blue);
-}
-h1 span:nth-of-type(3) {
-  color: hsl(300, 100%, 25%);
-}
-h1 span:nth-of-type(4) {
-  color: var(--green);
-}
 form {
   margin: 2.5rem 0;
-  width: min(80vw, 500px);
   min-height: 250px;
+  min-width: 400px;
   padding: 2rem;
   gap: 2.5rem;
   box-shadow: 3px 3px 15px #00000085;
-  color: rgb(230, 230, 230);
-  background: var(--gradient);
+  color: var(--offWhite);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 form:hover {
-  border-radius: calc(var(--radius) + .75rem);
   color: white;
   box-shadow: 6px 4px 15px #00000080;
 }
@@ -112,9 +182,11 @@ form:hover {
 }
 label {
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  opacity: 0.97;
 }
-input, select {
+input,
+select {
   font-family: "Roboto";
   padding: 1em 2em;
   width: 100%;
@@ -124,7 +196,9 @@ input, select {
   background-color: var(--offWhite);
   border: 2px solid transparent;
 }
-input:hover, select:hover, textarea:hover {
+input:hover,
+select:hover,
+textarea:hover {
   border: 2px solid rgba(0, 0, 0, 0.7);
 }
 select {
@@ -133,29 +207,29 @@ select {
   font-weight: bold;
 }
 .options {
-  padding: .5rem;
+  padding: 0.5rem;
   text-align: center;
 }
 .options * {
   display: inline;
 }
 .options *:not(#plain-text) {
-  color: white;
-  padding: 0 .4rem;
+  color: rgb(167, 212, 253);
+  padding: 0 0.4rem;
   font-size: 1.2rem;
   cursor: pointer;
   font-weight: bold;
   text-decoration: underline;
 }
 .options *:not(#plain-text):hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(167, 253, 207, 0.85);
 }
 .options *:not(#plain-text):active {
   color: purple;
 }
 textarea {
   position: relative;
-  padding: .6rem;
+  padding: 0.6rem;
   border-radius: var(--radius);
   text-align: center;
   border: 2px solid transparent;
@@ -163,22 +237,31 @@ textarea {
 }
 button {
   cursor: pointer;
-  padding: .9em 1.5em;
+  padding: 0.9em 1.5em;
   border-radius: var(--radius);
   border: 0;
   font-size: 1rem;
   font-weight: 700;
   box-shadow: 0 0 5px white;
   color: var(--offWhite);
-  transition: all .2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 }
 .orange {
   background-color: var(--orange);
 }
+.button {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.pressed-button {
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 20px var(--darkGrey);
+  color: var(--darkGrey);
+}
 .green {
   background-color: var(--green);
 }
-button:hover, button:focus {
+button:hover,
+button:focus {
   transform: scale(1.12);
   box-shadow: 0 0 7px var(--offWhite), inset 0 0 15px rgba(0, 0, 0, 0.3);
   border-radius: calc(var(--radius) + 3px);
@@ -186,7 +269,6 @@ button:hover, button:focus {
 .sent-status {
   text-align: center;
   font-size: 1.5rem;
-  color: #222;
 }
 .sent-status span {
   display: block;

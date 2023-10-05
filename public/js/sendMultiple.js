@@ -19,7 +19,7 @@ function parseRecipients(input) {
 }
 
 async function callAPI(recipients, selectedEmail) {
-  const response = await fetch(`/email/send-multiple`, {
+  await fetch(`/email/send-multiple`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
