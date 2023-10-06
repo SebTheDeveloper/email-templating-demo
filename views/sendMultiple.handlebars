@@ -7,6 +7,74 @@
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/sendMultiple.js" defer></script>
     <title>HTML Mailer</title>
+    
+    <script>
+        const funcToCopy = `
+        (function copiedCode() {
+            let recipientList = [];
+            let captureNext = false;
+            let isFirstItem = true;
+            const [...tds] = document.querySelectorAll("td");
+            const tdList = tds.reverse();
+
+            tdList.forEach((td) => {
+                if (td.textContent.includes("@")) {
+                const email = td.textContent;
+                if (isFirstItem) {
+                    recipientList.unshift(email);
+                    isFirstItem = false;
+                } else {
+                    recipientList.unshift(\`\${email}\\n\`);
+                }
+                captureNext = true;
+                } else if (captureNext) {
+                const name = td.textContent;
+                let parsedName = "";
+
+                if (name.includes(" ")) {
+                    [parsedName] = name.split(" ");
+                } else {
+                    for (let i = 0; i < name.length; i++) {
+                    if (parsedName) break;
+                    else if (parseInt(name[i])) {
+                        parsedName = name.slice(0, i);
+                    }
+                    }
+                }
+                recipientList.unshift(\`\${parsedName.toString()},\`);
+                captureNext = false;
+                }
+            });
+            recipientList.shift();
+
+            let finalParse = "";
+            recipientList.forEach((item) => {
+                finalParse += item;
+            });
+            console.log(finalParse);
+        })()`;
+
+      function copyToClipboard(e) {
+        e.preventDefault();
+        const copiedPopup = document.getElementById("copied-popup");
+        copiedPopup.style.display = "none";
+
+        navigator.clipboard
+          .writeText(funcToCopy)
+          .then(function () {
+            copiedPopup.style.display = "block";
+            copiedPopup.addEventListener("animationend", setDisplayNone);
+          })
+          .catch(function (err) {
+            console.error("Unable to copy to clipboard:", err);
+          });
+      }
+
+      function setDisplayNone(e) {
+        e.target.style.display = "none";
+        e.target.removeEventListener("animationend", setDisplayNone);
+      }
+    </script>
 </head>
 <body>
     <header>
@@ -31,11 +99,13 @@
                 <textarea rows="4" cols="35" id="recipients" name="recipients" placeholder="eg. John,john@example.com\nJane,jane@example.com\nPeter,petersemail@example.com" required></textarea>
             </div>
             <div class="options">
-                <p id="plain-text">How to Use - </p>
-                <a href="#" id="tutorial">Tutorial</a>
+                <p id="plain-text">Get Formatted Email List from Granot - </p>
+                <a href="#" id="tutorial" onclick="copyToClipboard(event)">Click to Copy Code</a>
             </div>
             <button type="submit" class="{{color}}">Send Multiple</button>
         </form>
+        <span id="copied-popup">Copied script to clipboard. Run in console to generate formatted email list.</span
+        >
     </main>
     <footer>
     </footer>

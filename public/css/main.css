@@ -276,6 +276,38 @@ button:focus {
   font-size: 2rem;
   animation: grow 1s ease-in-out;
 }
+#tutorial {
+  display: block;
+  margin-top: 0.6em;
+}
+#copied-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  animation: slide-right-in-out 3.5s cubic-bezier(0.52, -0.11, 0.47, 1.22)
+    forwards;
+}
+
+@keyframes slide-right-in-out {
+  0%,
+  2% {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  98%,
+  100% {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+}
 @keyframes grow {
   50% {
     transform: scale(1.1);

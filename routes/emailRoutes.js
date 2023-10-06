@@ -1,20 +1,20 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const selectEmail = require('../controllers/selectEmailController');
-const initAuth = require('../utils/auth');
+const selectEmail = require("../controllers/selectEmailController");
+const initAuth = require("../utils/auth");
 const auth = initAuth();
-const nmhbs = require('nodemailer-express-handlebars');
-const nodemailer = require('nodemailer');
+const nmhbs = require("nodemailer-express-handlebars");
+const nodemailer = require("nodemailer");
 
-router.get('/', auth.checkAuthenticated, (req, res) => {
-  res.render('main', {
+router.get("/", auth.checkAuthenticated, (req, res) => {
+  res.render("main", {
     layout: false,
-    status: 'Nothing sent yet',
-    color: 'orange'
+    status: "Nothing sent yet",
+    color: "orange",
   });
 });
 
-router.get('/preview', auth.checkAuthenticated, (req, res) => {
+router.get("/preview", auth.checkAuthenticated, (req, res) => {
   const name = req.query.name;
   const selectedEmail = req.query.selectedEmail;
   const email = req.query.recipient;
@@ -23,7 +23,7 @@ router.get('/preview', auth.checkAuthenticated, (req, res) => {
   res.send(generatedEmail.output);
 });
 
-router.post('/send', auth.checkAuthenticated, (req, res) => {
+router.post("/send", auth.checkAuthenticated, (req, res) => {
   const name = req.body.name.trim();
   const selectedEmail = req.body.select_email;
   const email = req.body.recipient.trim();
@@ -38,17 +38,17 @@ router.post('/send', auth.checkAuthenticated, (req, res) => {
     transporter.close();
   })();
 
-  res.redirect('/email/email-success');
+  res.redirect("/email/email-success");
 });
 
-router.get('/send-multiple', auth.checkAuthenticated, (req, res) => {
-  res.render('sendMultiple', { 
+router.get("/send-multiple", auth.checkAuthenticated, (req, res) => {
+  res.render("sendMultiple", {
     layout: false,
-    color: 'orange'
+    color: "orange",
   });
 });
 
-router.post('/send-multiple', auth.checkAuthenticated, (req, res) => {
+router.post("/send-multiple", auth.checkAuthenticated, (req, res) => {
   const recipients = req.body.recipients;
   const selectedEmail = req.body.selectedEmail;
 
@@ -64,27 +64,31 @@ router.post('/send-multiple', auth.checkAuthenticated, (req, res) => {
     }
     transporter.close();
   })();
-  
+
   res.status(200);
 });
 
-router.get('/email-success', auth.checkAuthenticated,  (req, res) => {
-  res.render('main', {
+router.get("/email-success", auth.checkAuthenticated, (req, res) => {
+  res.render("main", {
     layout: false,
-    status: 'Your email was sent successfully',
-    color: 'green'
+    status: "Your email was sent successfully",
+    color: "green",
   });
 });
 
-router.get('/viewed-email', (req, res) => {
-  let ipAddress = req.header('x-forwarded-for') || req.socket.remoteAddress;
+router.get("/viewed-email", (req, res) => {
+  let ipAddress = req.header("x-forwarded-for") || req.socket.remoteAddress;
 
   const emailContent = `
     <h2>Your email to ${req.query.name} has been read.</h2>
     <p>Customer's Email: ${req.query.email}</p>
     <p>Sent Email: ${req.query.selectedEmail}</p>
   `;
-  console.log(req.header('x-forwarded-for'), req.socket.remoteAddress, req.query.selectedEmail);
+  console.log(
+    req.header("x-forwarded-for"),
+    req.socket.remoteAddress,
+    req.query.selectedEmail
+  );
   res.status(404);
   res.end();
 });
@@ -100,15 +104,18 @@ function createTransporter() {
       pass: process.env.EMAIL_PASS,
     },
     tls: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
     },
-    pool: true
+    pool: true,
   });
 
-  transporter.use('compile', nmhbs({
-    viewEngine: 'express-handlebars',
-    viewPath: './views'
-  }));
+  transporter.use(
+    "compile",
+    nmhbs({
+      viewEngine: "express-handlebars",
+      viewPath: "./views",
+    })
+  );
 
   return transporter;
 }
@@ -116,17 +123,20 @@ function createTransporter() {
 async function sendEmail(transporter, name, email, emailSubject, output) {
   try {
     await transporter.sendMail({
-      from: `"${process.env.CURR_USER} | Dougherty Brothers Moving" <${process.env.EMAIL_USER}>`,
+      from: `"Demo Email from GoodNoodle.xyz" <${process.env.EMAIL_USER}>`,
       to: email, // list of receivers
-      bcc: `${process.env.CURR_USER}@doughertybrothersmoving.com`,
+      bcc: process.env.EMAIL_USER,
       subject: emailSubject,
-      html: output
+      html: output,
     });
-    console.log(`"${emailSubject}" was sent to ${name} at ${email} on ${new Date().toLocaleString()} EST`);
+    console.log(
+      `"${emailSubject}" was sent to ${name} at ${email} on ${new Date().toLocaleString()} EST`
+    );
   } catch (err) {
-    console.log(`"FAILED TO SEND ${emailSubject}" to ${name} at ${email} on ${new Date().toLocaleString()} EST. Error: ${err}`);
+    console.log(
+      `"FAILED TO SEND ${emailSubject}" to ${name} at ${email} on ${new Date().toLocaleString()} EST. Error: ${err}`
+    );
   }
 }
-
 
 module.exports = router;

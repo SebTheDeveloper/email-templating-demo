@@ -252,7 +252,7 @@ function getHTML(name, email, selectedEmail) {
                                                                                       <td align="left" style="color:#848484;font-size:14px;font-family:Calibri,sans-serif,'Open Sans';line-height:18px">
                                                                                           <div>
                                                                                               <a href="mailto:${process.env.CURR_USER}@DoughertyBrothersMoving.com" style="color: #848484;">Send me an email</a><br>
-                                                                                              US DOT: 3397306 &nbsp &nbsp MC: 1092930<br>
+                                                                                              US DOT: 3397306  MC: 1092930<br>
                                                                                               Dougherty Brothers Moving LLC<br>
                                                                                           </div>
                                                                                       </td>
@@ -307,6 +307,5 @@ function getHTML(name, email, selectedEmail) {
   </html>
   `;
 }
-
 
 module.exports = getHTML;
